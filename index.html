@@ -963,14 +963,20 @@ sendButton.addEventListener('click', () => {
     let reply = "Thank you for contacting Be & Make IT Academy.";
 
     if (msg.toLowerCase().includes("course")) {
-        reply = "We offer DCA, PGDCA, Tally, Web Designing, Programming and Basic Computer courses.";
-    } else if (msg.toLowerCase().includes("admission")) {
-        reply = "Please fill up the online admission form available on our website.";
-    } else if (msg.toLowerCase().includes("fee")) {
-        reply = "Please contact 7002540719 for fee details.";
-    } else if (msg.toLowerCase().includes("contact")) {
-        reply = "Call us at 7002540719 or 8133907123.";
-    }
+    reply = "We offer DCA, PGDCA, Tally, Python, Web Designing and more.";
+}
+else if (msg.toLowerCase().includes("fee")) {
+    reply = "Please contact 7002540719 for fee details.";
+}
+else if (msg.toLowerCase().includes("certificate")) {
+    reply = "Certificates are issued after successful course completion.";
+}
+else if (msg.toLowerCase().includes("timing")) {
+    reply = "Classes are available in morning and evening batches.";
+}
+else {
+    reply = "Please contact 7002540719 for detailed information.";
+}
 
     setTimeout(() => {
         chatMessages.innerHTML += `
