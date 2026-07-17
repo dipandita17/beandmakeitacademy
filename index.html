@@ -619,53 +619,89 @@
 
                 <!-- Form Element with JS Alert Simulation -->
                  <form action="https://formsubmit.co/beandmakeitacademy@gmail.com" method="POST">
-              <div class="grid sm:grid-cols-2 gap-5">
-                 
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">Student Full Name <span class="text-red-500">*</span></label>
-                            <input type="text" required placeholder="Enter full name" class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 transition">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">Mobile Number <span class="text-red-500">*</span></label>
-                            <input type="tel" required placeholder="Enter 10-digit number" pattern="[0-9]{10}" class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 transition">
-                        </div>
-                    </div>
 
-                    <div class="grid sm:grid-cols-2 gap-5">
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">Email Address</label>
-                            <input type="email" placeholder="name@example.com" class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 transition">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">Select Target Course <span class="text-red-500">*</span></label>
-                            <select required class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 bg-white transition">
-                                <option value="" disabled selected>-- Select Your Preferred Course --</option>
-                                <option value="bcc">Basic Computer Course (3 Months)</option>
-                                <option value="aca">Advanced Computer Applications (6 Months)</option>
-                                <option value="tally">Tally Prime with GST (3 Months)</option>
-                                <option value="dtp">Desktop Publishing - DTP (3 Months)</option>
-                                <option value="msoffice">MS Office Suite (2 Months)</option>
-                                <option value="digital-lit">Internet & Digital Literacy (1 Month)</option>
-                                <option value="python">Python Programming (3 Months)</option>
-                                <option value="ai-basics">Artificial Intelligence Basics (2 Months)</option>
-                                <option value="nielit">NIELIT Examination Track</option>
-                                <option value="data-entry">Data Entry Operator Training (3 Months)</option>
-                            </select>
-                        </div>
-                    </div>
+    <input type="hidden" name="_subject" value="New Admission Application">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
 
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">Permanent / Communication Address <span class="text-red-500">*</span></label>
-                        <textarea required rows="3" placeholder="Enter complete home address details" class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-blue-100 transition resize-none"></textarea>
-                    </div>
+    <div class="grid sm:grid-cols-2 gap-5">
 
-                    <div class="pt-2">
-                        <a href="https://forms.gle/wi5tqSRmQzLmGkPD8" target="_blank">
-         <button type="button" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-orange-600/20 text-sm">
- Submit Admission Application <i class="fas fa-paper-plane ml-2"></i>
-                        </button> </a>
-                    </div>
-                </form>
+        <div class="space-y-1">
+            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">
+                Student Full Name <span class="text-red-500">*</span>
+            </label>
+            <input type="text" name="Student Name" required
+                placeholder="Enter full name"
+                class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200">
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">
+                Mobile Number <span class="text-red-500">*</span>
+            </label>
+            <input type="tel" name="Mobile Number" required
+                placeholder="Enter 10-digit number"
+                pattern="[0-9]{10}"
+                class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200">
+        </div>
+
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+
+        <div class="space-y-1">
+            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">
+                Email Address
+            </label>
+            <input type="email" name="Email Address"
+                placeholder="name@example.com"
+                class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200">
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">
+                Select Target Course <span class="text-red-500">*</span>
+            </label>
+
+            <select name="Course" required
+                class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 bg-white">
+
+                <option value="">-- Select Your Preferred Course --</option>
+                <option>Basic Computer Course (3 Months)</option>
+                <option>Advanced Computer Applications (6 Months)</option>
+                <option>Tally Prime with GST (3 Months)</option>
+                <option>Desktop Publishing - DTP (3 Months)</option>
+                <option>MS Office Suite (2 Months)</option>
+                <option>Internet & Digital Literacy (1 Month)</option>
+                <option>Python Programming (3 Months)</option>
+                <option>Artificial Intelligence Basics (2 Months)</option>
+                <option>NIELIT Examination Track</option>
+                <option>Data Entry Operator Training (3 Months)</option>
+
+            </select>
+        </div>
+
+    </div>
+
+    <div class="space-y-1">
+        <label class="text-xs font-bold uppercase text-gray-600 tracking-wide">
+            Permanent / Communication Address <span class="text-red-500">*</span>
+        </label>
+
+        <textarea name="Address" required rows="3"
+            placeholder="Enter complete home address details"
+            class="w-full text-sm px-4 py-3 rounded-xl border border-gray-200 resize-none"></textarea>
+    </div>
+
+    <div class="pt-4">
+        <button type="submit"
+            class="w-full bg-brand-orange hover:bg-orange-600 text-white font-bold py-3.5 px-6 rounded-xl transition">
+            Submit Admission Application
+            <i class="fas fa-paper-plane ml-2"></i>
+        </button>
+    </div>
+
+</form>          
             </div>
         </div>
     </section>
