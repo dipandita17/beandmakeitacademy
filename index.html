@@ -856,7 +856,6 @@
                 <button id="chatbot-close" class="text-white/80 hover:text-white"><i class="fas fa-times"></i></button>
             </div>
             <!-- Body area chats log simulation box screen view -->
-          chatbotClose.addEventListener('click', () => {
             <div id="chatMessages" class="p-4 bg-slate-50 flex-1 overflow-y-auto space-y-3 min-h-[200px] text-xs">
                
                 <div class="bg-blue-50 text-gray-700 p-2.5 rounded-xl rounded-tl-none max-w-[85%] border border-blue-100/50">
@@ -884,13 +883,34 @@
     </div>
 
     <!-- Essential Functional Website Operations JavaScript -->
-    <script>
-        
-        // DOM Handles Allocation
+   <script>
+// DOM Handles Allocation
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotBox = document.getElementById('chatbot-box');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatIcon = document.getElementById('chat-icon');
+
 const chatInput = document.getElementById('chatInput');
 const sendButton = document.getElementById('sendButton');
 const chatMessages = document.getElementById('chatMessages');
 
+// Chatbot Open/Close
+chatbotToggle.addEventListener('click', () => {
+    chatbotBox.classList.toggle('hidden');
+
+    if (chatbotBox.classList.contains('hidden')) {
+        chatIcon.className = "fas fa-robot text-xl";
+    } else {
+        chatIcon.className = "fas fa-comment-slash text-xl";
+    }
+});
+
+chatbotClose.addEventListener('click', () => {
+    chatbotBox.classList.add('hidden');
+    chatIcon.className = "fas fa-robot text-xl";
+});
+
+// Send Message
 sendButton.addEventListener('click', () => {
 
     const msg = chatInput.value.trim();
@@ -910,7 +930,7 @@ sendButton.addEventListener('click', () => {
     } else if (msg.toLowerCase().includes("admission")) {
         reply = "Please fill up the online admission form available on our website.";
     } else if (msg.toLowerCase().includes("fee")) {
-        reply = "Please contact 7002540719 for the latest fee details.";
+        reply = "Please contact 7002540719 for fee details.";
     } else if (msg.toLowerCase().includes("contact")) {
         reply = "Call us at 7002540719 or 8133907123.";
     }
@@ -926,9 +946,13 @@ sendButton.addEventListener('click', () => {
 
     chatInput.value = '';
 });
-    
-    
-    
-    </script>
+
+// Press Enter to Send
+chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        sendButton.click();
+    }
+});
+</script>
 </body>
 </html>
