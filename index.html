@@ -856,63 +856,79 @@
                 <button id="chatbot-close" class="text-white/80 hover:text-white"><i class="fas fa-times"></i></button>
             </div>
             <!-- Body area chats log simulation box screen view -->
-            <div class="p-4 bg-slate-50 flex-1 overflow-y-auto space-y-3 min-h-[200px] text-xs">
+          chatbotClose.addEventListener('click', () => {
+            <div id="chatMessages" class="p-4 bg-slate-50 flex-1 overflow-y-auto space-y-3 min-h-[200px] text-xs">
+               
                 <div class="bg-blue-50 text-gray-700 p-2.5 rounded-xl rounded-tl-none max-w-[85%] border border-blue-100/50">
                     Hello! Welcome to <strong>Be & Make IT Academy</strong>. How can I assist you with our computer courses, admission forms, or certificate tracking info today?
                 </div>
             </div>
             <!-- Simulated Input Bar frame field layout -->
-            <div class="p-2 border-t border-gray-100 flex items-center gap-2 bg-white">
-                <input type="text" placeholder="Type an inquiry..." disabled class="bg-gray-100 text-xs px-3 py-2 rounded-xl flex-1 focus:outline-none cursor-not-allowed">
-                <button disabled class="w-8 h-8 bg-brand-orange/50 text-white rounded-lg flex items-center justify-center cursor-not-allowed"><i class="fas fa-paper-plane text-xs"></i></button>
-            </div>
+
+<div class="p-2 border-t border-gray-100 flex items-center gap-2 bg-white">
+    <input
+        type="text"
+        id="chatInput"
+        placeholder="Type an inquiry..."
+        class="bg-gray-100 text-xs px-3 py-2 rounded-xl flex-1 focus:outline-none">
+
+    <button
+        id="sendButton"
+        class="w-8 h-8 bg-brand-orange text-white rounded-lg flex items-center justify-center">
+        <i class="fas fa-paper-plane text-xs"></i>
+    </button>
+</div>
+
+            
         </div>
     </div>
 
     <!-- Essential Functional Website Operations JavaScript -->
     <script>
+        
         // DOM Handles Allocation
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        const chatbotToggle = document.getElementById('chatbot-toggle');
-        const chatbotBox = document.getElementById('chatbot-box');
-        const chatbotClose = document.getElementById('chatbot-close');
-        const chatIcon = document.getElementById('chat-icon');
+const chatInput = document.getElementById('chatInput');
+const sendButton = document.getElementById('sendButton');
+const chatMessages = document.getElementById('chatMessages');
 
-        // Navigation drawer display execution toggles
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if(mobileMenu.classList.contains('hidden')) {
-                menuIcon.className = "fas fa-bars text-2xl";
-            } else {
-                menuIcon.className = "fas fa-times text-2xl";
-            }
-        });
+sendButton.addEventListener('click', () => {
 
-        // Hide navigation drawer when any interior link element yields selection action
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = "fas fa-bars text-2xl";
-            });
-        });
+    const msg = chatInput.value.trim();
 
-        // Chatbot interaction UI toggle execution logic patterns
-        chatbotToggle.addEventListener('click', () => {
-            chatbotBox.classList.toggle('hidden');
-            if(chatbotBox.classList.contains('hidden')) {
-                chatIcon.className = "fas fa-robot text-xl";
-            } else {
-                chatIcon.className = "fas fa-comment-slash text-xl";
-            }
-        });
+    if (!msg) return;
 
-        chatbotClose.addEventListener('click', () => {
-            chatbotBox.classList.add('hidden');
-            chatIcon.className = "fas fa-robot text-xl";
-        });
+    chatMessages.innerHTML += `
+        <div class="bg-green-100 text-gray-700 p-2 rounded-xl ml-auto max-w-[85%]">
+            ${msg}
+        </div>
+    `;
+
+    let reply = "Thank you for contacting Be & Make IT Academy.";
+
+    if (msg.toLowerCase().includes("course")) {
+        reply = "We offer DCA, PGDCA, Tally, Web Designing, Programming and Basic Computer courses.";
+    } else if (msg.toLowerCase().includes("admission")) {
+        reply = "Please fill up the online admission form available on our website.";
+    } else if (msg.toLowerCase().includes("fee")) {
+        reply = "Please contact 7002540719 for the latest fee details.";
+    } else if (msg.toLowerCase().includes("contact")) {
+        reply = "Call us at 7002540719 or 8133907123.";
+    }
+
+    setTimeout(() => {
+        chatMessages.innerHTML += `
+            <div class="bg-blue-50 text-gray-700 p-2 rounded-xl rounded-tl-none max-w-[85%] border border-blue-100/50">
+                ${reply}
+            </div>
+        `;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 500);
+
+    chatInput.value = '';
+});
+    
+    
+    
     </script>
 </body>
 </html>
